@@ -4,18 +4,69 @@ Script para obtener información en tiempo real de disponibilidad de combustible
 
 ## Características
 
-- 🌍 Ubicaciones preconfiguradas (Cedis, Moldes, Casa, Centro)
+- 🌍 Ubicaciones configurables
 - 📍 Soporte para coordenadas personalizadas
 - 📏 Filtro por distancia máxima
 - ⛽ Filtro por saldo mínimo de combustible
 - 🎨 Indicadores visuales de nivel de combustible
 - 🔄 Actualización en tiempo real desde fulealo.com
+- 🔐 Configuración privada (no incluida en git)
+
+## Instalación
+
+### 1. Clonar el repositorio
+```bash
+git clone <tu-repo>
+cd fulealo
+```
+
+### 2. Crear entorno virtual
+```bash
+python -m venv venv
+source venv/Scripts/activate  # En Windows
+```
+
+### 3. Instalar dependencias
+```bash
+pip install -r requirements.txt
+playwright install chromium
+```
+
+### 4. Configurar ubicaciones
+Copia el archivo de ejemplo y personalízalo:
+```bash
+cp config_ubicaciones.example.py config_ubicaciones.py
+```
+
+Edita `config_ubicaciones.py` con tus ubicaciones:
+```python
+UBICACIONES = {
+    'cedis': [-17.672590, -63.147228],
+    'moldes': [-17.7892227, -63.1876608],
+    'casa': [-17.707494, -63.184554],
+    'centro': [-17.783327, -63.182140]
+}
+```
+
+## Configuración
+
+### Archivo `config_ubicaciones.py`
+Este archivo contiene tus ubicaciones personalizadas y **NO se subirá a Git** (está en `.gitignore`).
+
+**¿Por qué es privado?**
+- 🔐 Protege tus direcciones personales
+- 🚫 Evita que se compartan ubicaciones privadas en el repositorio
+- ✅ Cada usuario puede tener sus propias ubicaciones
+
+**Cómo configurar:**
+1. Copia `config_ubicaciones.example.py` a `config_ubicaciones.py`
+2. Abre `config_ubicaciones.py` y personaliza tus ubicaciones
+3. El archivo es ignorado por Git, solo tu máquina lo puede ver
 
 ## Requisitos
 
 ```bash
-pip install playwright beautifulsoup4
-playwright install chromium
+pip install -r requirements.txt
 ```
 
 ## Uso

@@ -2,16 +2,9 @@ from playwright.sync_api import sync_playwright
 from bs4 import BeautifulSoup
 import time
 import argparse
+from config_ubicaciones import UBICACIONES
 
 url = "https://fulealo.com/"
-
-# Ubicaciones preconfiguradas
-UBICACIONES = {
-    'cedis': [-17.672590, -63.147228],
-    'moldes': [-17.7892227, -63.1876608],
-    'casa': [-17.707494, -63.184554],
-    'centro': [-17.783327, -63.182140]  # Plaza 24 de Septiembre
-}
 
 def seleccionar_ubicacion(geoloc_name=None, lat=None, lon=None):
     """Selecciona la ubicación ya sea de parámetros o preguntando al usuario"""
