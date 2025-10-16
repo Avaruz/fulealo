@@ -80,16 +80,16 @@ python scrapper.py
 Te preguntará qué ubicación deseas usar:
 ```
 === UBICACIONES DISPONIBLES ===
-  Cedis: -17.67259, -63.147228
-  Moldes: -17.7892227, -63.1876608
-  Casa: -17.707494, -63.184554
-  Centro: -17.783327, -63.18214
+  ubi1: -17.67259, -63.14337228
+  ubi2: -17.7892227, -63.322323
+  ubi3: -17.707494, -63.232323
+  defecto: -17.783327, -63.1833214
 
 ¿Qué ubicación deseas usar?
-  1. Cedis
-  2. Moldes
-  3. Casa
-  4. Centro
+  1. Ubi1
+  2. Ubi2
+  3. Ubi3
+  4. Defecto
   5. Ingresar coordenadas personalizadas
 
 Selecciona una opción:
@@ -106,17 +106,17 @@ python scrapper.py --silencioso
 ### Usando Ubicaciones Preconfiguradas
 
 ```bash
-# Usar ubicación Cedis
-python scrapper.py --geoloc_name cedis
+# Usar ubicación Ubi1
+python scrapper.py --geoloc_name ubi1
 
-# Usar ubicación Casa
-python scrapper.py --geoloc_name casa
+# Usar ubicación Ubi3
+python scrapper.py --geoloc_name ubi3
 
-# Usar ubicación Moldes
-python scrapper.py --geoloc_name moldes
+# Usar ubicación Ubi2
+python scrapper.py --geoloc_name ubi2
 
-# Usar ubicación Centro
-python scrapper.py --geoloc_name centro
+# Usar ubicación Defecto
+python scrapper.py --geoloc_name defecto
 ```
 
 ### Usando Coordenadas Personalizadas
@@ -129,18 +129,19 @@ python scrapper.py --geoloc_name custom --lat -17.783327 --lon -63.182140
 
 ### Filtrar por Distancia
 
-Mostrar solo gasolineras a menos de 5 km desde Cedis:
+Mostrar solo gasolineras a menos de 5 km desde Ubi1:
 
 ```bash
-python scrapper.py --geoloc_name cedis --max_distancia 5
+python scrapper.py --geoloc_name ubi1 --max_distancia 5
 ```
 
 ### Filtrar por Saldo Mínimo
 
-Mostrar solo gasolineras con al menos 20% de saldo desde Casa:
+```bash
+Mostrar solo gasolineras con al menos 20% de saldo desde Ubi3:
 
 ```bash
-python scrapper.py --geoloc_name casa --min_saldo 20
+python scrapper.py --geoloc_name ubi3 --min_saldo 20
 ```
 
 ### Combinando Filtros
@@ -151,36 +152,36 @@ Ubicación Custom + máximo 10 km + mínimo 15% de saldo:
 python scrapper.py --geoloc_name custom --lat -17.672590 --lon -63.147228 --max_distancia 10 --min_saldo 15
 ```
 
-Ubicación Moldes + máximo 8 km + mínimo 10% de saldo:
+Ubicación Ubi2 + máximo 8 km + mínimo 10% de saldo:
 
 ```bash
-python scrapper.py --geoloc_name moldes --max_distancia 8 --min_saldo 10
+python scrapper.py --geoloc_name ubi2 --max_distancia 8 --min_saldo 10
 ```
 
 ## Ubicaciones Preconfiguradas
 
 | Nombre | Latitud | Longitud | Descripción |
 |--------|---------|----------|-------------|
-| Cedis  | -17.672590 | -63.147228 | Zona Cedis |
-| Moldes | -17.7892227 | -63.1876608 | Zona Moldes |
-| Casa   | -17.707494 | -63.184554 | Ubicación Casa |
-| Centro | -17.783327 | -63.182140 | Plaza 24 de Septiembre |
+| Ubi1  | -17.672590 | -63.14337228 | Zona Ubi1 |
+| Ubi2 | -17.7892227 | -63.322323 | Zona Ubi2 |
+| Ubi3   | -17.707494 | -63.232323 | Ubicación Ubi3 |
+| Defecto | -17.783327 | -63.1833214 | Plaza 24 de Septiembre |
 
 ## Parámetros Disponibles
 
 | Parámetro | Tipo | Descripción | Ejemplo |
 |-----------|------|-------------|---------|
-| `--geoloc_name` | string | Nombre de ubicación: cedis, moldes, casa, centro, o custom | `--geoloc_name cedis` |
+| `--geoloc_name` | string | Nombre de ubicación: ubi1, ubi2, ubi3, defecto, o custom | `--geoloc_name ubi1` |
 | `--lat` | float | Latitud (solo si geoloc_name=custom) | `--lat -17.783327` |
 | `--lon` | float | Longitud (solo si geoloc_name=custom) | `--lon -63.182140` |
 | `--max_distancia` | float | Distancia máxima en kilómetros | `--max_distancia 5` |
 | `--min_saldo` | float | Saldo mínimo de combustible en % | `--min_saldo 10` |
-| `--silencioso` | flag | No preguntar, usar Centro por defecto | `--silencioso` |
+| `--silencioso` | flag | No preguntar, usar Defecto por defecto | `--silencioso` |
 
 ## Validaciones
 
 El script valida automáticamente:
-- ✅ El nombre de ubicación debe estar en: `cedis`, `moldes`, `casa`, `centro`, o `custom`
+- ✅ El nombre de ubicación debe estar en: `ubi1`, `ubi2`, `ubi3`, `defecto`, o `custom`
 - ✅ Si usas `custom`, debes proporcionar `--lat` y `--lon`
 - ✅ Los valores de lat/lon deben ser números válidos
 - ✅ Muestra mensajes de error claros si algo está mal
