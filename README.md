@@ -41,10 +41,10 @@ cp config_ubicaciones.example.py config_ubicaciones.py
 Edita `config_ubicaciones.py` con tus ubicaciones:
 ```python
 UBICACIONES = {
-    'cedis': [-17.672590, -63.147228],
-    'moldes': [-17.7892227, -63.1876608],
-    'casa': [-17.707494, -63.184554],
-    'centro': [-17.783327, -63.182140]
+    'ubi1': [-17.2332, -63.2323],
+    'ubi2': [-17.27892227, -63.1834442],
+    'ubi13': [-17.70722494, -63.39993],
+    'defecto': [-17.7833327, -63.182140]
 }
 ```
 
